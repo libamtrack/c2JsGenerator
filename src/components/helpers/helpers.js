@@ -67,7 +67,7 @@ export function paramsInit(params : Array) {
 export function getFromMap(param) {
     return "\tlet " + param + " = parameters." + param + ";\n" +
         "\tif(!parameters." + param + ")\n" +
-        "\t\t console.error(\"NO PARAMETER: " + param + " IN MAP PASSED TO THIS FUNCTIONS\");\n";
+        "\t\t console.error(\"NO PARAMETER: " + param + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n";
 }
 
 export function callFunction(params : Array, inFunctionReturnType : string, inFunctionName : string) {
