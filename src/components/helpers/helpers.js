@@ -59,15 +59,17 @@ export function paramsInit(params : Array) {
     let toReturn = "";
     params.forEach(param => {
         if(!isArray(getParamName(param)) && !isParamToReturn(getParamName(param)))
-            toReturn += getFromMap(getParamName(param));
+            toReturn += getParamFromObject(getParamName(param));
     });
     return toReturn;
 }
 
-export function getFromMap(param) {
-    return "\tlet " + param + " = parameters." + param + ";\n" +
-        "\tif(!parameters." + param + ")\n" +
-        "\t\t console.error(\"NO PARAMETER: " + param + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n";
+export function getParamFromObject(param) {
+    return  "\tif(!parameters." + param + "){\n" +
+            "\t\t alert(\"MESSAGE TO DEVELOPER: NO PARAMETER " + param + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n" +
+            "\t\t return \"error\";\n" +
+            "\t}\n" +
+            "\tlet " + param + " = parameters." + param + ";\n"
 }
 
 export function callFunction(params : Array, inFunctionReturnType : string, inFunctionName : string) {
