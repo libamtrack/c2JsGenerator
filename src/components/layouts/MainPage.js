@@ -42,7 +42,7 @@ class MainPage extends React.Component {
     }
 
     generateOutput() {
-        let beigning = "export default function " + this.state.inFunctionName + "(parametersInMap) {\n";
+        let beigning = "export default function " + this.state.inFunctionName + "(parameters) {\n";
         let cwrap = "\tlet " + this.state.inFunctionName.toLowerCase() + " = Module.cwrap('" +
             this.state.inFunctionName + "', '" + getEmscriptenType(this.state.inFunctionReturnType) + "', " +
             getCwrapParams(this.state.inFunctionParameters) + ");\n";
