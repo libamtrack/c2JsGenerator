@@ -145,7 +145,7 @@ export function getParamArrayOutFromObject(paramName, paramType, size) {
 export function getDoubleOutArray(paramName, size) {
     return "\tlet " + paramName + "ReturnData = new Float64Array(new Array(" + size + "));\n" +
            "\tlet " + paramName + "ReturnDataBytesNumber = " + paramName + "ReturnData.length * " + paramName + "ReturnData.BYTES_PER_ELEMENT;\n" +
-           "\tlet " + paramName + "ReturnDataPointer = Module._malloc(" + paramName + "DataBytesNumber);\n" +
+           "\tlet " + paramName + "ReturnDataPointer = Module._malloc(" + paramName + "ReturnDataBytesNumber);\n" +
            "\tlet " + paramName + "ReturnHeap = new Uint8Array(Module.HEAPF64.buffer, " + paramName + "ReturnDataPointer, " + paramName + "ReturnDataBytesNumber);\n";
 }
 

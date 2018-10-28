@@ -82,7 +82,7 @@ class MainPage extends React.Component {
 
     getHelpBlock = () => {
         return <div>
-            <div><b>Return data by array:</b> f.e. you have <code>int random(n, double outputArray[]) </code> just add <code>@n</code>
+            <div><b>Return data by array:</b> f.e. you have <code>int random(n, double outputArray[]) </code> just add <code>@n </code>
             after <code>[]</code> just like that <code>int random(n, double outputArray[]@n)</code> now converter knows that you want to return
                 n double values from C function.
             </div>
