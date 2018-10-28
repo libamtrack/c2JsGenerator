@@ -1,8 +1,7 @@
 import React from "react";
 import {Link, Route} from 'react-router-dom';
 import {Col, Layout, Row} from 'antd';
-import {ControlLabel, FormControl, FormGroup} from "react-bootstrap";
-import HelpBlock from "react-bootstrap/es/HelpBlock";
+import {ControlLabel, FormControl, FormGroup, Button} from "react-bootstrap";
 import {callFunction, getCwrapParams, getEmscriptenType, getReturnLine, paramsInit} from "../helpers/helpers";
 
 const {Header, Content, Footer} = Layout;
@@ -16,15 +15,19 @@ class MainPage extends React.Component {
         this.generateOutput = this.generateOutput.bind(this);
 
         this.state = {
+            functionSignature: "",
             input: "",
             inFunctionReturnType: "",
             inFunctionName: "",
             inFunctionParameters: [],
-            output: ""
+            output: "",
+            helpBlock: "",
+            helpButtonText: "Show help"
         };
     }
 
     handleChange(e) {
+        this.setState({functionSignature: e.target.value});
         e.preventDefault();
         this.state.input = e.target.value.trim();
         this.getIn();
@@ -60,41 +63,75 @@ class MainPage extends React.Component {
         element.click();
     };
 
+    showExample = () => {
+        let example = "int funFromC( const long n, const double inputArray[], double outputArray[]@n);";
+        this.setState({functionSignature: example});
+        this.state.input = example;
+        this.getIn();
+    };
+
+    showHelp = () => {
+        if (this.state.helpBlock === "") {
+            this.setState({helpButtonText: "Hide help"});
+            this.setState({helpBlock: this.getHelpBlock()});
+        } else {
+            this.setState({helpButtonText: "Show help"});
+            this.setState({helpBlock: ""});
+        }
+    };
+
+    getHelpBlock = () => {
+        return <div>
+            <div><b>Return data by array:</b> f.e. you have <code>int random(n, double outputArray[]) </code> just add <code>@n</code>
+            after <code>[]</code> just like that <code>int random(n, double outputArray[]@n)</code> now converter knows that you want to return
+                n double values from C function.
+            </div>
+            <h5>Supported types</h5>
+            <div><b>Return type  :</b> All C types, pointers not working</div>
+            <div><b>Simple argument type:</b> All C types</div>
+            <div><b>Arrays to pass data to function:</b> double, long</div>
+            <div><b>Arrays to get data from function :</b> double </div>
+            <div><b>Tips :</b> use [] instead pointer</div>
+        </div>
+    };
+
     render() {
         return (
             <div>
                 <Route exact={true} path={"/"} render={() => (
                     <Layout className="layout">
-                        {/*LOGO*/}
-                        {/*<Header style={{background: "#fff", height: "200px"}}>*/}
-                        {/*<Row type='flex' gutter={8} align="center">*/}
-                        {/*<Col>*/}
-                        {/*<img src={logo} align="center" className="App-logo" alt="logo"/>*/}
-                        {/*</Col>*/}
-                        {/*</Row>*/}
-                        {/*</Header>*/}
+                        <Header style={{background: "#fff", paddingTop: 20}}>
+                            <Row type='flex' gutter={8} align="center">
+                                <Col>
+                                    <h4>Converter of C function signature to JavaScript function.</h4>
+                                </Col>
+                            </Row>
+                        </Header>
                         <Content style={{padding: '0 75px', background: '#fff'}}>
-                            <Row key={1} align="center" style={{paddingBottom: 25}}>
-
+                            <Row key={1} align="center">
                                 {/*INPUT*/}
                                 <FormGroup controlId="formBasicText1">
-                                    <ControlLabel>Working example with validation</ControlLabel>
+                                    <ControlLabel>
+                                        C function signature
+                                        <Button onClick={this.showExample}>Show example</Button>
+                                        <Button onClick={this.showHelp}>{this.state.helpButtonText}</Button>
+                                    </ControlLabel>
+                                    {this.state.helpBlock}
                                     <FormControl
                                         componentClass="textarea"
                                         placeholder="Enter text"
                                         onChange={this.handleChange}
+                                        value={this.state.functionSignature}
                                     />
-                                    <FormControl.Feedback/>
-                                    <HelpBlock>Validation is based on string length.</HelpBlock>
                                 </FormGroup>
                             </Row>
 
-                            <button onClick={this._downloadTxtFile}>Download file</button>
+                            <Button onClick={this._downloadTxtFile}>Download file</Button>
 
                             <Row key={2} align="center" style={{paddingBottom: 25}}>
                                 {/*OUTPUT*/}
                                 <FormGroup controlId="formBasicText2">
-                                    <ControlLabel>Working example with validation</ControlLabel>
+                                    <ControlLabel>JavaScript Code</ControlLabel>
                                     <FormControl
                                         componentClass="textarea"
                                         value={this.state.output}
@@ -102,13 +139,11 @@ class MainPage extends React.Component {
                                         style={{height: 400}}
                                         disabled={true}
                                     />
-                                    <FormControl.Feedback/>
-                                    <HelpBlock>Validation is based on string length.</HelpBlock>
                                 </FormGroup>
                             </Row>
                         </Content>
                         <Footer style={{textAlign: 'center', background: '#fff'}}>
-                            cToJsFunctionsGenerator
+                            cToJsFunctionsGenerator ©2018
                         </Footer>
                     </Layout>
                 )}/>
