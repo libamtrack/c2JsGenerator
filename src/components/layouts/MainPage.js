@@ -1,8 +1,12 @@
 import React from "react";
-import {Link, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {Col, Layout, Row} from 'antd';
-import {ControlLabel, FormControl, FormGroup, Button} from "react-bootstrap";
+import {Button, ControlLabel, FormControl, FormGroup} from "react-bootstrap";
 import {callFunction, getCwrapParams, getEmscriptenType, getReturnLine, paramsInit} from "../helpers/helpers";
+import AceEditor from 'react-ace';
+
+import 'brace/mode/javascript';
+import 'brace/theme/dracula';
 
 const {Header, Content, Footer} = Layout;
 
@@ -128,16 +132,25 @@ class MainPage extends React.Component {
 
                             <Button onClick={this._downloadTxtFile}>Download file</Button>
 
-                            <Row key={2} align="center" style={{paddingBottom: 25}}>
+                            <Row key={2} align="center" style={{flex: 1, paddingBottom: 25}}>
                                 {/*OUTPUT*/}
                                 <FormGroup controlId="formBasicText2">
                                     <ControlLabel>JavaScript Code</ControlLabel>
-                                    <FormControl
-                                        componentClass="textarea"
+                                    {/*<FormControl*/}
+                                        {/*componentClass="textarea"*/}
+                                        {/*value={this.state.output}*/}
+                                        {/*placeholder="Enter text"*/}
+                                        {/*style={{height: 400}}*/}
+                                        {/*disabled={true}*/}
+                                    {/*/>*/}
+                                    <AceEditor
+                                        mode="javascript"
+                                        theme="dracula"
                                         value={this.state.output}
-                                        placeholder="Enter text"
-                                        style={{height: 400}}
-                                        disabled={true}
+                                        name="UNIQUE_ID_OF_DIV"
+                                        editorProps={{$blockScrolling: true}}
+                                        showPrintMargin={false}
+                                        style={{height: 400, width: 1200}}
                                     />
                                 </FormGroup>
                             </Row>
