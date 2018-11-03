@@ -32,10 +32,13 @@ class MainPage extends React.Component {
     }
 
     handleChange(e) {
-        this.setState({functionSignature: e.target.value});
-        e.preventDefault();
-        this.state.input = e.target.value.trim();
-        this.getIn();
+        this.state.input = e.trim();
+        this.state.functionSignature = e.trim();
+        try {
+            this.getIn();
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     getIn() {
