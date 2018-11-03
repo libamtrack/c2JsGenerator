@@ -51,11 +51,11 @@ export function getCwrapParams(params : Array) {
     return toReturn + "]"
 }
 export function getParamType(param : string) {
-    return param.split(" ")[0]
+    return (param.match(/\S+/g) || [])[0]
 }
 
 export function getParamName(param : string) {
-    return param.split(" ")[1]
+    return (param.match(/\S+/g) || [])[1]
 }
 
 export function getReturnTableSize(paramName : string) {
