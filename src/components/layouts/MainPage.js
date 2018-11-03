@@ -1,11 +1,12 @@
 import React from "react";
 import {Route} from 'react-router-dom';
 import {Col, Layout, Row} from 'antd';
-import {Button, ControlLabel, FormControl, FormGroup} from "react-bootstrap";
+import {Button, ButtonToolbar, ControlLabel, FormGroup} from "react-bootstrap";
 import {callFunction, getCwrapParams, getEmscriptenType, getReturnLine, paramsInit} from "../helpers/helpers";
 import AceEditor from 'react-ace';
 
 import 'brace/mode/javascript';
+import 'brace/mode/c_cpp';
 import 'brace/theme/dracula';
 
 const {Header, Content, Footer} = Layout;
@@ -116,43 +117,41 @@ class MainPage extends React.Component {
                                 {/*INPUT*/}
                                 <FormGroup controlId="formBasicText1">
                                     <ControlLabel>
-                                        C function signature
-                                        <Button onClick={this.showExample}>Show example</Button>
-                                        <Button onClick={this.showHelp}>{this.state.helpButtonText}</Button>
+                                        <ButtonToolbar>
+                                            <Button bsStyle="primary" onClick={this.showExample}>Show example</Button>
+                                            <Button bsStyle="success" style={{marginLeft: 10}} onClick={this.showHelp}>{this.state.helpButtonText}</Button>
+                                        </ButtonToolbar>
+                                        {this.state.helpBlock}
+                                        <h5>C function signature</h5>
                                     </ControlLabel>
-                                    {this.state.helpBlock}
-                                    <FormControl
-                                        componentClass="textarea"
-                                        placeholder="Enter text"
+
+                                    <AceEditor
+                                        mode="c_cpp"
+                                        theme="dracula"
                                         onChange={this.handleChange}
                                         value={this.state.functionSignature}
+                                        name="INPUT"
+                                        editorProps={{$blockScrolling: true}}
+                                        showPrintMargin={false}
+                                        style={{height: 80}}
+                                        width="100%"
                                     />
                                 </FormGroup>
                             </Row>
-
-                            <Button onClick={this._downloadTxtFile}>Download file</Button>
-
+                            <Button bsStyle="danger" onClick={this._downloadTxtFile}>Download file</Button>
                             <Row key={2} align="center" style={{flex: 1, paddingBottom: 25}}>
                                 {/*OUTPUT*/}
-                                <FormGroup controlId="formBasicText2">
-                                    <ControlLabel>JavaScript Code</ControlLabel>
-                                    {/*<FormControl*/}
-                                        {/*componentClass="textarea"*/}
-                                        {/*value={this.state.output}*/}
-                                        {/*placeholder="Enter text"*/}
-                                        {/*style={{height: 400}}*/}
-                                        {/*disabled={true}*/}
-                                    {/*/>*/}
+                                <ControlLabel><h5>Generated JavaScript Code</h5></ControlLabel>
                                     <AceEditor
                                         mode="javascript"
                                         theme="dracula"
                                         value={this.state.output}
-                                        name="UNIQUE_ID_OF_DIV"
+                                        name="OUTPUT"
                                         editorProps={{$blockScrolling: true}}
                                         showPrintMargin={false}
-                                        style={{height: 400, width: 1200}}
+                                        style={{height: 400}}
+                                        width="100%"
                                     />
-                                </FormGroup>
                             </Row>
                         </Content>
                         <Footer style={{textAlign: 'center', background: '#fff'}}>
