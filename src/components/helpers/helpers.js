@@ -104,6 +104,7 @@ export function getParamArrayInFromObject(paramName, paramType) {
         "\t\t alert(\"MESSAGE TO DEVELOPER: NO PARAMETER " + paramName + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n" +
         "\t\t return \"error\";\n" +
         "\t}\n" + getParamArrayInRest(paramName, paramType);
+
 }
 
 export function getParamArrayInRest(paramName, paramType) {
