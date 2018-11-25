@@ -92,7 +92,7 @@ export function paramsInit(params : Array) {
 
 
 export function getParamFromObject(paramName) {
-    return  "\tif(parameters." + paramName + " !== undefined){\n" +
+    return  "\tif(typeof parameters." + paramName + " === \"undefined\"){\n" +
             "\t\t alert(\"MESSAGE TO DEVELOPER: NO PARAMETER " + paramName + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n" +
             "\t\t return \"error\";\n" +
             "\t}\n" +
@@ -100,7 +100,7 @@ export function getParamFromObject(paramName) {
 }
 
 export function getParamArrayInFromObject(paramName, paramType) {
-    return "\tif(parameters." + paramName + " !== undefined){\n" +
+    return "\tif(typeof parameters." + paramName + " === \"undefined\"){\n" +
         "\t\t alert(\"MESSAGE TO DEVELOPER: NO PARAMETER " + paramName + " IN OBJECT PASSED TO THIS FUNCTIONS\");\n" +
         "\t\t return \"error\";\n" +
         "\t}\n" + getParamArrayInRest(paramName, paramType);
