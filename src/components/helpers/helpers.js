@@ -23,6 +23,9 @@ export function getEmscriptenType(cType){
     }
 }
 
+
+//TODO
+
 export function isArrayInput(param : string) {
     return param.indexOf("[]") !== -1 && !isParamToReturn(param);
 }
