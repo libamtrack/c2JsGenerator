@@ -45,7 +45,7 @@
     "babel-plugin-wildcard": "5.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "react": "16.8.1",
-    "react-ace": "6.2.0",
+    "react-ace": "6.4.0",
     "react-dom": "16.8.1",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1"
