@@ -43,7 +43,7 @@
     "antd": "3.13.2",
     "axios": "0.18.0",
     "babel-plugin-wildcard": "5.0.0",
-    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap": "4.3.0",
     "react": "16.8.1",
     "react-ace": "6.4.0",
     "react-dom": "16.8.1",
