@@ -34,7 +34,7 @@
     "react-bootstrap": "0.32.4",
     "recursive-readdir": "2.2.2",
     "style-loader": "0.23.1",
-    "webpack": "4.32.0",
+    "webpack": "4.32.1",
     "webpack-cli": "3.3.2",
     "webpack-dev-server": "3.4.1"
   },
