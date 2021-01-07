@@ -41,18 +41,13 @@
   "dependencies": {
     "@axetroy/react-download": "1.1.1",
     "antd": "3.26.16",
-    "axios": "0.19.1",
+    "axios": "0.21.1",
     "babel-plugin-wildcard": "5.0.0",
-    "bootstrap": "4.4.0",
+    "bootstrap": "4.4.1",
     "react": "16.13.0",
     "react-ace": "7.0.5",
     "react-dom": "16.13.0",
     "react-router": "5.0.1",
     "react-router-dom": "5.1.0"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "babel-loader"
-    ]
   }
 }
