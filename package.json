@@ -42,6 +42,7 @@
     "@axetroy/react-download": "1.1.1",
     "antd": "3.26.12",
     "axios": "0.21.1",
+    "axios": "0.19.2",
     "babel-plugin-wildcard": "5.0.0",
     "bootstrap": "4.4.0",
     "react": "16.13.0",
@@ -49,10 +50,5 @@
     "react-dom": "16.13.0",
     "react-router": "5.0.1",
     "react-router-dom": "5.1.0"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "babel-loader"
-    ]
   }
 }
