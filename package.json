@@ -48,6 +48,6 @@
     "react-ace": "7.0.5",
     "react-dom": "16.13.0",
     "react-router": "5.2.0",
-    "react-router-dom": "5.1.0"
+    "react-router-dom": "5.2.1"
   }
 }
