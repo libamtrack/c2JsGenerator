@@ -39,7 +39,7 @@
   "dependencies": {
     "@axetroy/react-download": "1.1.1",
     "antd": "3.26.20",
-    "axios": "0.21.1",
+    "axios": "0.21.4",
     "babel-plugin-wildcard": "5.0.0",
     "bootstrap": "4.5.3",
     "react": "16.14.0",
