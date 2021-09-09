@@ -1,7 +1,7 @@
 import React from "react";
 import {Route} from 'react-router-dom';
 import {Col, Layout, Row} from 'antd';
-import {Button, ButtonToolbar, ControlLabel, FormGroup} from "react-bootstrap";
+import {Button, ButtonToolbar, FormLabel, FormGroup} from "react-bootstrap";
 import {callFunction, getCwrapParams, getEmscriptenType, getReturnLine, paramsInit} from "../helpers/helpers";
 import AceEditor from 'react-ace';
 
@@ -109,24 +109,24 @@ class MainPage extends React.Component {
                 <Route exact={true} path={"/"} render={() => (
                     <Layout className="layout">
                         <Header style={{background: "#fff", paddingTop: 20}}>
-                            <Row type='flex' gutter={8} align="center">
+                            <Row type='flex' gutter={8} align="middle">
                                 <Col>
                                     <h4>Converter of C function signature to JavaScript function.</h4>
                                 </Col>
                             </Row>
                         </Header>
                         <Content style={{padding: '0 75px', background: '#fff'}}>
-                            <Row key={1} align="center">
+                            <Row key={1} align="middle">
                                 {/*INPUT*/}
                                 <FormGroup controlId="formBasicText1">
-                                    <ControlLabel>
+                                    <FormLabel>
                                         <ButtonToolbar>
-                                            <Button bsStyle="primary" onClick={this.showExample}>Show example</Button>
-                                            <Button bsStyle="success" style={{marginLeft: 10}} onClick={this.showHelp}>{this.state.helpButtonText}</Button>
+                                            <Button variant="primary" onClick={this.showExample}>Show example</Button>
+                                            <Button variant="success" style={{marginLeft: 10}} onClick={this.showHelp}>{this.state.helpButtonText}</Button>
                                         </ButtonToolbar>
                                         {this.state.helpBlock}
                                         <h5>C function signature</h5>
-                                    </ControlLabel>
+                                    </FormLabel>
 
                                     <AceEditor
                                         mode="c_cpp"
@@ -141,10 +141,10 @@ class MainPage extends React.Component {
                                     />
                                 </FormGroup>
                             </Row>
-                            <Button bsStyle="danger" onClick={this._downloadTxtFile}>Download file</Button>
-                            <Row key={2} align="center" style={{flex: 1, paddingBottom: 25}}>
+                            <Button variant="danger" onClick={this._downloadTxtFile}>Download file</Button>
+                            <Row key={2} align="middle" style={{flex: 1, paddingBottom: 25}}>
                                 {/*OUTPUT*/}
-                                <ControlLabel><h5>Generated JavaScript Code</h5></ControlLabel>
+                                <FormLabel><h5>Generated JavaScript Code</h5></FormLabel>
                                     <AceEditor
                                         mode="javascript"
                                         theme="dracula"
@@ -158,7 +158,7 @@ class MainPage extends React.Component {
                             </Row>
                         </Content>
                         <Footer style={{textAlign: 'center', background: '#fff'}}>
-                            cToJsFunctionsGenerator ©2018
+                            cToJsFunctionsGenerator ©2021
                         </Footer>
                     </Layout>
                 )}/>
