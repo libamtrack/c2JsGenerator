@@ -10,7 +10,8 @@
     "build": "webpack --mode production",
     "transpile": "babel src -d dist --copy-files",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "react-scripts test"
   },
   "keywords": [],
   "author": "Arkadiusz Dudzik & Piotr Zmilczak",
@@ -18,7 +19,7 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
-    "babel-loader": "7.1.5",
+    "babel-loader": "8.1.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
@@ -32,11 +33,12 @@
     "linspace": "1.0.0",
     "logspace": "1.0.1",
     "react-bootstrap": "0.32.4",
+    "react-scripts": "4.0.3",
     "recursive-readdir": "2.2.2",
     "style-loader": "1.1.2",
-    "webpack": "4.41.6",
+    "webpack": "4.44.2",
     "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.10.3"
+    "webpack-dev-server": "3.11.1"
   },
   "dependencies": {
     "@axetroy/react-download": "1.1.1",
