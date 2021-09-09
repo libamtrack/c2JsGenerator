@@ -6,12 +6,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
     template: "./src/index.html",
     filename: "./index.html"
 });
-const copyStatic = new CopyWebpackPlugin([
-    {
-        from: 'src/static/',
-        to: "static/"
-    }
-]);
+const copyStatic = new CopyWebpackPlugin({
+    patterns: [
+        {from: 'src/static/', to: "static/"}
+    ]
+});
 
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
