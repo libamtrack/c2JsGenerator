@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "cToJsFunctionsGenerator",
-  "homepage": "http://marwin1991.github.io/cToJsFunctionsGenerator",
+  "homepage": "https://libamtrack.github.io/c2JsGenerator/",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -48,6 +48,6 @@
     "react-ace": "7.0.5",
     "react-dom": "16.13.0",
     "react-router": "5.2.0",
-    "react-router-dom": "5.1.0"
+    "react-router-dom": "5.2.0"
   }
 }
