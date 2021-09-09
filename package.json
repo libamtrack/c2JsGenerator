@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "cToJsFunctionsGenerator",
-  "homepage": "http://marwin1991.github.io/cToJsFunctionsGenerator",
+  "homepage": "https://libamtrack.github.io/c2JsGenerator/",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
