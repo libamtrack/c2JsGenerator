@@ -1,3 +1,3 @@
 module.export = function (){
-    console.log("NIE ZLE")
+    console.log("not bad")
 };
