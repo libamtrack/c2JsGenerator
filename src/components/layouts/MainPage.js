@@ -116,7 +116,7 @@ class MainPage extends React.Component {
                             </Row>
                         </Header>
                         <Content style={{padding: '0 75px', background: '#fff'}}>
-                            <Row key={1} align="middle">
+                            <Row key={1} align="middle" >
                                 {/*INPUT*/}
                                 <FormGroup controlId="formBasicText1">
                                     <FormLabel>
@@ -136,8 +136,8 @@ class MainPage extends React.Component {
                                         name="INPUT"
                                         editorProps={{$blockScrolling: true}}
                                         showPrintMargin={false}
-                                        style={{height: 80}}
-                                        width="100%"
+                                        height='80px'
+                                        width='80vw'
                                     />
                                 </FormGroup>
                             </Row>
@@ -152,8 +152,8 @@ class MainPage extends React.Component {
                                         name="OUTPUT"
                                         editorProps={{$blockScrolling: true}}
                                         showPrintMargin={false}
-                                        style={{height: 400}}
-                                        width="100%"
+                                        height='400px'
+                                        width='80vw'
                                     />
                             </Row>
                         </Content>
