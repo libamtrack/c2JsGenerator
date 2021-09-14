@@ -39,7 +39,7 @@
     "@axetroy/react-download": "1.1.1",
     "antd": "4.16.13",
     "axios": "0.21.4",
-    "babel-plugin-wildcard": "5.0.0",
+    "babel-plugin-wildcard": "7.0.0",
     "bootstrap": "5.1.1",
     "react": "16.14.0",
     "react-ace": "7.0.5",
