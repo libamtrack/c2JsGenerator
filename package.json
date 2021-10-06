@@ -42,7 +42,7 @@
     "babel-plugin-wildcard": "7.0.0",
     "bootstrap": "5.1.2",
     "react": "16.14.0",
-    "react-ace": "7.0.5",
+    "react-ace": "9.4.4",
     "react-dom": "16.14.0",
     "react-router": "5.2.1",
     "react-router-dom": "5.3.0"
