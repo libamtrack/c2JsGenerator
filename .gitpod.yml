@@ -1,0 +1,7 @@
+ports:
+  - port: 5000
+    onOpen: open-preview
+
+tasks:
+  - init: npm install && npm run build
+    command: npm run start
