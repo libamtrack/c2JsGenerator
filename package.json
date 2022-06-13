@@ -15,7 +15,7 @@
   "author": "Arkadiusz Dudzik & Piotr Zmilczak",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@webpack-cli/serve": "^1.6.1",
+    "@webpack-cli/serve": "^1.7.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
